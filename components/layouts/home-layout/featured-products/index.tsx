@@ -6,15 +6,13 @@ import { setAllProduct } from "@/vendor/slices/allProductsSlice"
 import { setCart } from "@/vendor/slices/cartSlice"
 import { setProduct } from "@/vendor/slices/productSlice"
 import { setWishlist } from "@/vendor/slices/wishlistSlice"
-import { Button, Snackbar, SnackbarOrigin, styled } from "@material-ui/core"
+import { Button, IconButton, Snackbar, styled } from "@material-ui/core"
 import { useRouter } from "next/navigation"
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
+import { IoCloseCircleOutline } from "react-icons/io5"
 import { useDispatch } from "react-redux"
 import styles from "./styles.module.css"
 
-interface State extends SnackbarOrigin {
-  open: boolean
-}
 const FeaturedProducts = ({
   itemCount,
   pagination,
@@ -26,24 +24,11 @@ const FeaturedProducts = ({
   const [cartItems, setCartItems] = useState<{ data: any; quantity: number }[]>(
     []
   )
-  const [state, setState] = useState<State>({
-    open: false,
-    vertical: "top",
-    horizontal: "center",
-  })
+
   const [wishListItems, setWishListItems] = useState<{ data: any }[]>([])
   const dispatch = useDispatch()
   const router = useRouter()
 
-  const { vertical, horizontal, open } = state
-
-  const handleClick = (newState: SnackbarOrigin) => () => {
-    setState({ ...newState, open: true })
-  }
-
-  const handleClose = () => {
-    setState({ ...state, open: false })
-  }
   const StyledButton = styled(Button)({
     display: "flex",
     padding: "15px 40px",
@@ -85,13 +70,68 @@ const FeaturedProducts = ({
   const handleLoadMore = () => {
     setVisibleProducts((prevVisibleProducts) => prevVisibleProducts + 5)
   }
+  const [open, setOpen] = React.useState(false)
+  const [openWishList, setOpenWishList] = useState(false)
+
+  const handleClick = () => {
+    setOpen(true)
+  }
+
+  const handleClose = (
+    event: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return
+    }
+
+    setOpen(false)
+  }
+  const handleClickWishlist = () => {
+    setOpenWishList(true)
+  }
+
+  const handleCloseWishlist = (
+    event: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return
+    }
+
+    setOpenWishList(false)
+  }
+  const wishlistaction = (
+    <React.Fragment>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleCloseWishlist}
+      >
+        <IoCloseCircleOutline fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  )
+  const action = (
+    <React.Fragment>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <IoCloseCircleOutline fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  )
 
   const addToCart = (data: any) => {
     const newItem = {
       data,
       quantity: 1,
     }
-    handleClick({ vertical: "bottom", horizontal: "right" })
+    handleClick()
 
     setCartItems((prevCartItems) => [...prevCartItems, newItem])
     dispatch(setCart([...cartItems, newItem]))
@@ -101,7 +141,7 @@ const FeaturedProducts = ({
     const newItem = {
       data,
     }
-
+    handleClickWishlist()
     setWishListItems((prevWishListItems) => [...prevWishListItems, newItem])
     dispatch(setWishlist([...wishListItems, newItem]))
   }
@@ -159,20 +199,18 @@ const FeaturedProducts = ({
         </div>
       </SecondaryCover>
       <Snackbar
-        anchorOrigin={{ vertical, horizontal }}
         open={open}
-        onClose={handleClose}
         autoHideDuration={6000}
-        message="Addeed to wishlist"
-        key={vertical + horizontal}
+        onClose={handleClose}
+        message="Added to cart"
+        action={action}
       />
       <Snackbar
-        anchorOrigin={{ vertical, horizontal }}
+        open={openWishList}
         autoHideDuration={6000}
-        open={open}
-        onClose={handleClose}
-        message="Addeed to cart"
-        key={vertical + horizontal}
+        onClose={handleCloseWishlist}
+        message="Added to Wishlist"
+        action={wishlistaction}
       />
     </div>
   )
