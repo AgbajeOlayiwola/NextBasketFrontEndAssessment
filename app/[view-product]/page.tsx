@@ -27,7 +27,7 @@ const ViewProduct = () => {
   })
 
   useEffect(() => {
-    refetch(id)
+    refetch()
   }, [id])
   useEffect(() => {
     if (isSuccess) {
