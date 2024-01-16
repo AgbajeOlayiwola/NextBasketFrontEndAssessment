@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
     <div>
       <ProductCategories />
-      <FeaturedProducts />
+      <FeaturedProducts itemCount={8} pagination={true} />
       <Services />
       <FeaturedPosts />
       <AboutUs />

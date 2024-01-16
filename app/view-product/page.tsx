@@ -1,7 +1,7 @@
 "use client"
 import CurrentLink from "@/components/current-link"
+import FeaturedProducts from "@/components/layouts/home-layout/featured-products"
 import AdditionalInfo from "@/components/layouts/product-view-layout/additional-info"
-import BestSeller from "@/components/layouts/product-view-layout/best-seller"
 import Partners from "@/components/layouts/product-view-layout/partners"
 import ProductView from "@/components/layouts/product-view-layout/product-view"
 import { useGetSingleProductQuery } from "@/vendor/api/mutationApi"
@@ -39,7 +39,7 @@ const ViewProduct = () => {
       <CurrentLink />
       <ProductView />
       <AdditionalInfo />
-      <BestSeller />
+      <FeaturedProducts itemCount={8} pagination={false} />
       <Partners />
     </div>
   )

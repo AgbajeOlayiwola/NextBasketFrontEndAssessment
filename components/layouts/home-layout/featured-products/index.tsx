@@ -15,8 +15,14 @@ import styles from "./styles.module.css"
 interface State extends SnackbarOrigin {
   open: boolean
 }
-const FeaturedProducts = () => {
-  const [visibleProducts, setVisibleProducts] = useState(10)
+const FeaturedProducts = ({
+  itemCount,
+  pagination,
+}: {
+  itemCount: number
+  pagination: boolean
+}) => {
+  const [visibleProducts, setVisibleProducts] = useState(itemCount)
   const [cartItems, setCartItems] = useState<{ data: any; quantity: number }[]>(
     []
   )
@@ -109,11 +115,13 @@ const FeaturedProducts = () => {
     <div className={styles.featured}>
       <SecondaryCover>
         <div className={styles.featured_prods}>
-          <div className={styles.featured}>
-            <h4>Featured Products</h4>
-            <h3>BESTSELLER PRODUCTS</h3>
-            <p>Problems trying to resolve the conflict between </p>
-          </div>
+          {pagination ? (
+            <div className={styles.featured}>
+              <h4>Featured Products</h4>
+              <h3>BESTSELLER PRODUCTS</h3>
+              <p>Problems trying to resolve the conflict between </p>
+            </div>
+          ) : null}
           <div className={styles.products_grid}>
             {isLoading ? (
               <p>Loading...</p>
@@ -125,6 +133,7 @@ const FeaturedProducts = () => {
                 ?.map((product: any, index: number) => (
                   <ProductTile
                     addToWishList={() => addToWishList(product)}
+                    pagination={pagination}
                     key={index}
                     onClick={() => openProducts(product)}
                     addToCart={() => addToCart(product)}
@@ -140,11 +149,13 @@ const FeaturedProducts = () => {
                 ))
             )}
           </div>
-          <div className={styles.learn}>
-            <StyledButton variant="outlined" onClick={handleLoadMore}>
-              Learn More
-            </StyledButton>
-          </div>
+          {pagination ? (
+            <div className={styles.learn}>
+              <StyledButton variant="outlined" onClick={handleLoadMore}>
+                Learn More
+              </StyledButton>
+            </div>
+          ) : null}
         </div>
       </SecondaryCover>
       <Snackbar

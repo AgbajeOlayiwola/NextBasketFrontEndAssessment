@@ -4,6 +4,7 @@ import CartIconSvg from "../SVG/cartIconSvg"
 import HeartIconSvg from "../SVG/heartIconSvg"
 import styles from "./styles.module.css"
 const ProductTile = ({
+  pagination,
   image,
   title,
   price,
@@ -13,6 +14,7 @@ const ProductTile = ({
   addToCart,
   addToWishList,
 }: {
+  pagination: boolean
   image: string
   title: string
   price: number
@@ -24,7 +26,7 @@ const ProductTile = ({
 }) => {
   const formater = createFormatter()
   return (
-    <div className={styles.prod}>
+    <div className={pagination ? styles.prod : styles.prods}>
       <Image src={image} alt="talk" height={238} width={183} />
       <div className={styles.prod_details}>
         <h5 className={styles.prod_h5} onClick={onClick}>
