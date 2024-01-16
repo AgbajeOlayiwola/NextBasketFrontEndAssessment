@@ -1,0 +1,33 @@
+.nav {
+  background: #23856d;
+  height: 58px;
+  padding: 9px 0px 3px 0px;
+}
+.nav_flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.nav_flex p {
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 171.429% */
+  letter-spacing: 0.2px;
+}
+.nav div {
+  display: flex;
+}
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.flex_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10.5px;
+}

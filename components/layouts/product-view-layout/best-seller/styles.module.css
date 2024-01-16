@@ -1,0 +1,15 @@
+.best_seller {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.best_seller_item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 24px;
+}
+.best_prod {
+  background: #fafafa;
+  padding: 48px 0px;
+}

@@ -1,0 +1,20 @@
+.partner_logo {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+.partners {
+  padding: 50px 0px;
+  background: #fafafa;
+}
+
+@media screen and (max-width: 975px) {
+  .partner_logo {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+}

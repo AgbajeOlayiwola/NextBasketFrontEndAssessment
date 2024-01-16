@@ -1,0 +1,64 @@
+.add_info {
+  padding: 24px 0px;
+}
+.add_desc {
+  display: flex;
+  gap: 45px;
+  padding-top: 87px;
+  justify-content: center;
+}
+.add_desc h5 {
+  color: #737373;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 171.429% */
+  letter-spacing: 0.2px;
+  cursor: pointer;
+}
+.add_desc h5 span {
+  color: #23856d;
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 171.429% */
+  letter-spacing: 0.2px;
+}
+.add_details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0px;
+}
+.add_paragraph {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 47%;
+}
+.add_paragraph h3 {
+  margin: 0px;
+  color: #252b42;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 133.333% */
+  letter-spacing: 0.1px;
+}
+.add_paragraph p {
+  margin: 0px;
+  color: #737373;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: 0.2px;
+}
+.add_second_paragraph {
+  border: solid 1px #23856d;
+  border-right: none;
+  border-top: none;
+  border-bottom: none;
+  padding-left: 24px;
+}

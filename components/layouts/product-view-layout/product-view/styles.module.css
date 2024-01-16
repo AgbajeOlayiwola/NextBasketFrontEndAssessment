@@ -1,0 +1,132 @@
+.product_flex {
+  display: grid;
+  grid-template-columns: 49% 49%;
+  gap: 50px;
+}
+
+.color {
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  margin-bottom: 67px;
+  margin-top: 27px;
+}
+.color_layout {
+  display: flex;
+  gap: 10px;
+}
+.product_info {
+  width: 90%;
+  display: flex;
+  gap: 119px;
+  flex-direction: column;
+}
+.prod_star {
+  display: flex;
+  gap: 5px;
+}
+.star_rev {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.prod_avail {
+  display: flex;
+  align-items: center;
+}
+.prod_avail h5 {
+  margin: 0px;
+  color: #737373;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.prod_avail h6 {
+  color: #23a6f0;
+  margin: 0px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.prod_pe h3 {
+  margin: 0px;
+  color: #252b42;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 133.333% */
+  letter-spacing: 0.1px;
+}
+.prod_info h4 {
+  color: #252b42;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  margin: 0px;
+}
+.prod_info p {
+  color: #737373;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 171.429% */
+  letter-spacing: 0.2px;
+}
+.prod_options {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.prod_options > div {
+  display: flex;
+  gap: 10px;
+}
+.prod_options > div > div {
+  border-radius: 44.786px;
+  border: 1px solid #e8e8e8;
+  background: #fff;
+  display: flex;
+
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.prod_preview {
+  display: flex;
+  gap: 19px;
+  padding: 0px 0px 48px 0px;
+}
+@media screen and (max-width: 975px) {
+  .product_flex {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 133px;
+    padding-bottom: 40px;
+  }
+  .product_info {
+    width: 90%;
+    display: flex;
+    gap: 32px;
+    flex-direction: column;
+  }
+  .product_info p {
+    color: #858585;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.2px;
+  }
+  .prod_info h4 {
+    color: #252b42;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px; /* 150% */
+    letter-spacing: 0.2px;
+  }
+}

@@ -1,0 +1,21 @@
+.cart_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart_inner {
+  display: flex;
+  gap: 30px;
+}
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.quantity div {
+  cursor: pointer;
+  background-color: grey;
+  padding: 5px;
+  border-radius: 67px;
+  color: white;
+}

@@ -1,0 +1,129 @@
+.better_bg {
+  padding: 80px 0px;
+  background-image: url("/images/unsplash_XEmaJaM-4nE.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.better_dets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 50%;
+}
+.better_dets h4 {
+  color: #23a6f0;
+  text-align: center;
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 171.429% */
+  letter-spacing: 0.2px;
+  margin: 0px;
+}
+.better_center {
+  display: flex;
+  justify-content: center;
+}
+.better_dets h2 {
+  color: #252b42;
+  text-align: center;
+
+  /* h2 */
+  font-family: Montserrat;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 50px; /* 125% */
+  letter-spacing: 0.2px;
+  margin: 0px;
+}
+.better_dets p {
+  color: #737373;
+  text-align: center;
+  width: 80%;
+
+  margin: 0px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: 0.2px;
+}
+.better_dets h3 {
+  color: var(--secondary-color-1, #23856d);
+  text-align: center;
+  margin: 0px;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 133.333% */
+  letter-spacing: 0.1px;
+}
+
+@media screen and (max-width: 975px) {
+  .better_bg {
+    padding: 80px 0px;
+    background-image: url("/images/unsplash_XEmaJaM-4nE.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .better_dets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 50%;
+  }
+  .better_dets h4 {
+    color: #23a6f0;
+    text-align: center;
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 171.429% */
+    letter-spacing: 0.2px;
+    margin: 0px;
+  }
+  .better_center {
+    display: flex;
+    justify-content: center;
+  }
+  .better_dets h2 {
+    color: #252b42;
+    text-align: center;
+
+    /* h2 */
+    font-family: Montserrat;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 50px; /* 125% */
+    letter-spacing: 0.2px;
+    margin: 0px;
+  }
+  .better_dets p {
+    color: #737373;
+    text-align: center;
+    width: 80%;
+
+    margin: 0px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.2px;
+  }
+  .better_dets h3 {
+    color: var(--secondary-color-1, #23856d);
+    text-align: center;
+    margin: 0px;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 133.333% */
+    letter-spacing: 0.1px;
+  }
+}

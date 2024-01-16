@@ -1,0 +1,120 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fff;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 348px;
+  overflow: hidden;
+}
+.post_details {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.post_image {
+  position: relative;
+}
+.post_tag {
+  border-radius: 3px;
+  background: #e74040;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 0px 10px;
+}
+.post_tag h6 {
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 171.429% */
+  letter-spacing: 0.2px;
+  margin: 0px;
+}
+.trends {
+  display: flex;
+  gap: 15px;
+}
+.trends .active {
+  color: #8ec2f2;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 133.333% */
+  letter-spacing: 0.2px;
+}
+.trends p {
+  color: #737373;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 133.333% */
+  letter-spacing: 0.2px;
+  margin: 0px;
+}
+.post_header_p {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 93%;
+}
+.post_header_p > h4 {
+  color: #252b42;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px; /* 150% */
+  letter-spacing: 0.2px;
+  margin: 0px;
+}
+.post_header_p > p {
+  color: #737373;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: 0.2px;
+  margin: 0px;
+}
+.post_time_comments {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.post_time_comments div {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.post_time_comments div > p {
+  color: #737373;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 133.333% */
+  letter-spacing: 0.2px;
+}
+.post_learn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.post_learn > h6 {
+  color: #737373;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 171.429% */
+  letter-spacing: 0.2px;
+  margin: 0px;
+}
+.post_learn svg {
+  font-size: 16px;
+  color: #23a6f0;
+}

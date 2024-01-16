@@ -1,0 +1,129 @@
+.bottom_nav {
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  align-items: center;
+}
+.bottom_nav_nav_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 84%;
+}
+.bottom_nav_nav_item > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  position: relative;
+}
+.cart_auth_flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+.nav_item_links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+.flex_item > p {
+  color: #23a6f0;
+  text-align: center;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 133.333% */
+  letter-spacing: 0.2px;
+}
+.bottom_nav > div > h3 {
+  color: #252b42;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 133.333% */
+  letter-spacing: 0.1px;
+}
+.nav_item_links p {
+  color: #737373;
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 171.429% */
+  letter-spacing: 0.2px;
+}
+.cart {
+  position: absolute;
+  z-index: 10;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px;
+  max-height: 205px;
+  height: fit-content;
+  overflow: scroll;
+  top: 33px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+@media screen and (max-width: 975px) {
+  .bottom_nav_nav_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    flex-direction: column;
+  }
+  .nav_item_links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cart_auth_flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .flex_item > p {
+    color: #23a6f0;
+    text-align: center;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 45px; /* 150% */
+    letter-spacing: 0.2px;
+  }
+  .nav_item_links > p {
+    color: #252b42;
+    text-align: center;
+
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 45px; /* 150% */
+    letter-spacing: 0.2px;
+  }
+}

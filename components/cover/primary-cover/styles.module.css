@@ -1,0 +1,8 @@
+.outer_cover {
+  display: flex;
+  justify-content: center;
+}
+.inner_cover {
+  width: 90%;
+  max-width: 1450px;
+}

@@ -1,0 +1,27 @@
+.links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 0px;
+}
+.links a:nth-child(1) {
+  text-decoration: none;
+  color: #252b42;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 171.429% */
+  letter-spacing: 0.2px;
+}
+.links svg {
+  color: #bdbdbd;
+}
+.shop_text {
+  text-decoration: none;
+  color: #bdbdbd;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 171.429% */
+  letter-spacing: 0.2px;
+}
