@@ -70,7 +70,7 @@
   background-color: white;
   padding: 30px;
   border-radius: 10px;
-  width: 300px;
+  width: 519px;
   max-height: 205px;
   height: fit-content;
   overflow: scroll;
@@ -80,6 +80,15 @@
   flex-direction: column;
   gap: 20px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.total {
+  display: flex;
+  justify-content: flex-end;
+}
+.total div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 @media screen and (max-width: 975px) {
   .bottom_nav_nav_item {

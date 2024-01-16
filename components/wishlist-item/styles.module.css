@@ -19,3 +19,13 @@
   border-radius: 67px;
   color: white;
 }
+.del_item {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.del_item p {
+  font-size: 12px;
+  color: red;
+  cursor: pointer;
+}

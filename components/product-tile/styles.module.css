@@ -6,6 +6,7 @@
 }
 .price h5:nth-child(1) {
   color: #bdbdbd;
+
   margin: 0px;
   font-size: 16px;
   font-style: normal;
@@ -41,6 +42,7 @@
 }
 .prod_h5 {
   color: #252b42;
+  cursor: pointer;
   margin: 0px;
   font-size: 16px;
   font-style: normal;
@@ -48,10 +50,11 @@
   line-height: 24px; /* 150% */
   letter-spacing: 0.1px;
 }
-.prod_details a {
-  color: var(--second-text-color, #737373);
+.prod_details h6 {
+  color: #737373;
   text-decoration: none;
   font-size: 14px;
+  margin: 0px;
   font-style: normal;
   font-weight: 700;
   line-height: 24px; /* 171.429% */

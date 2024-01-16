@@ -1,6 +1,9 @@
 import { createFormatter } from "@/utils/formater"
+import { Button, IconButton, Snackbar } from "@material-ui/core"
 import Image from "next/image"
 import Link from "next/link"
+import React, { useState } from "react"
+import { IoCloseCircleOutline } from "react-icons/io5"
 import CartIconSvg from "../SVG/cartIconSvg"
 import HeartIconSvg from "../SVG/heartIconSvg"
 import styles from "./styles.module.css"
@@ -24,6 +27,7 @@ const SecondaryProductTile = ({
   addToWishList: any
 }) => {
   const formater = createFormatter()
+
   return (
     <div className={styles.prod}>
       <Image src={image} alt="talk" height={239} width={280} />

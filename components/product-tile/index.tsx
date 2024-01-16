@@ -1,6 +1,5 @@
 import { createFormatter } from "@/utils/formater"
 import Image from "next/image"
-import Link from "next/link"
 import CartIconSvg from "../SVG/cartIconSvg"
 import HeartIconSvg from "../SVG/heartIconSvg"
 import styles from "./styles.module.css"
@@ -31,7 +30,7 @@ const ProductTile = ({
         <h5 className={styles.prod_h5} onClick={onClick}>
           {title}
         </h5>
-        <Link href="#">{category}</Link>
+        <h6>{category}</h6>
         <div className={styles.price}>
           <h5>${formater?.format(Number(price))}</h5>
           <h5>${formater?.format(Number(discount))}</h5>

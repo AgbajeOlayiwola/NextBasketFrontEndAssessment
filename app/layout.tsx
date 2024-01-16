@@ -1,5 +1,5 @@
 import MainLayout from "@/components/layouts/main-layout"
-import { Providers } from "@/redux/provider"
+import { Providers } from "@/vendor/provider"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "slick-carousel/slick/slick-theme.css"

@@ -1,19 +1,23 @@
 import Image from "next/image"
 import styles from "./styles.module.css"
-const WishlistItem = () => {
+const WishlistItem = ({
+  WishlistItem,
+  handleDeleteList,
+}: {
+  WishlistItem: any
+  handleDeleteList: any
+}) => {
   return (
     <div className={styles.cart_item}>
       <div className={styles.cart_inner}>
-        <Image
-          src="/images/product-cover-5.png"
-          alt=""
-          width="100"
-          height="100"
-        />
+        <Image src={WishlistItem?.images[0]} alt="" width="100" height="100" />
         <div>
-          <h6>Iphone</h6>
-          <h5>Category</h5>
+          <h6>{WishlistItem?.title}</h6>
+          <h5>{WishlistItem?.category}</h5>
         </div>
+      </div>
+      <div className={styles.del_item}>
+        <p onClick={() => handleDeleteList(WishlistItem?.id)}>Delete</p>
       </div>
     </div>
   )

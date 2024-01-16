@@ -7,21 +7,26 @@ import UsersSvg from "@/components/SVG/usersSvg"
 import CartItems from "@/components/cart-items"
 import PrimaryCover from "@/components/cover/primary-cover"
 import WishlistItem from "@/components/wishlist-item"
-import { RootState } from "@/redux/provider/store"
+import { RootState } from "@/vendor/provider/store"
+import { setCart } from "@/vendor/slices/cartSlice"
+import { setWishlist } from "@/vendor/slices/wishlistSlice"
 import { useEffect, useState } from "react"
 import { IoChevronDownSharp } from "react-icons/io5"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import styles from "./styles.module.css"
 
 interface WishlistItem {
   id: number
   name: string
+  data: any
 }
 interface CartItemType {
+  data: any
   id: number
   name: string
 }
 const BottomNavbar = () => {
+  const dispatch = useDispatch()
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
 
@@ -29,7 +34,9 @@ const BottomNavbar = () => {
     cart: store.cart as CartItemType[],
     wishlist: store.wishlist as WishlistItem[],
   }))
-
+  const [cartItems, setCartItems] = useState(cart)
+  const [total, setTotal] = useState()
+  const [wishList, setWishList] = useState(wishlist)
   const [dropDown, setDropDown] = useState(false)
   const [showCart, setShowCart] = useState(false)
   const [showWishList, setShowWishList] = useState(false)
@@ -44,6 +51,56 @@ const BottomNavbar = () => {
     window.addEventListener("resize", handleWindowResize)
     return () => window.removeEventListener("resize", handleWindowResize)
   }, [width])
+  const handleDeleteItem = (id: number) => {
+    setCartItems((prevItems) => prevItems.filter((item) => item.data.id !== id))
+    console.log(cartItems)
+    dispatch(setCart(cartItems))
+  }
+  const handleDeleteList = (id: number) => {
+    console.log("Deleting item with id:", id)
+    setWishList((prevItems) => prevItems.filter((item) => item.data.id !== id))
+    dispatch(setWishlist(wishList))
+  }
+  const handleAddQuantity = (index: any) => {
+    setCartItems((prevItems: any) => {
+      return prevItems.map((item: any, i: any) => {
+        if (i === index) {
+          return { ...item, quantity: item?.quantity + 1 }
+        }
+        return item
+      })
+    })
+    const total = calculateTotal(cartItems)
+    setTotal(total)
+  }
+
+  const handleRemoveQuantity = (index: any) => {
+    setCartItems((prevItems: any) => {
+      return prevItems.map((item: any, i: any) => {
+        if (i === index) {
+          return { ...item, quantity: item?.quantity - 1 }
+        }
+        return item
+      })
+    })
+    const total = calculateTotal(cartItems)
+    setTotal(total)
+  }
+  const calculateTotal = (cartItems: any) => {
+    // Calculate the total by summing up the product of quantity and price for each item
+    const total = cartItems.reduce((accumulator: number, cartItems: any) => {
+      return accumulator + cartItems?.quantity * cartItems?.data?.price
+    }, 0)
+
+    return total
+  }
+
+  useEffect(() => {
+    setCartItems(cart)
+  }, [cart])
+  useEffect(() => {
+    setWishList(wishlist)
+  }, [wishlist])
   return (
     <PrimaryCover>
       {width > 900 ? (
@@ -82,12 +139,31 @@ const BottomNavbar = () => {
                     }}
                     fill="#23A6F0"
                   />{" "}
-                  <p>{cart?.length}</p>
+                  <p>{cartItems?.length}</p>
                   {showWishList ? (
                     <div className={styles.cart}>
-                      {wishlist.map((item: any, index: number) => {
-                        return <WishlistItem key={index} />
-                      })}
+                      {cartItems?.length <= 0 ? (
+                        <p>No item in your cart</p>
+                      ) : (
+                        cartItems?.map((item: any, index: number) => {
+                          return (
+                            <CartItems
+                              idx={index}
+                              handleRemoveQuantity={handleRemoveQuantity}
+                              handleAddQuantity={handleAddQuantity}
+                              cartData={item?.data}
+                              key={index}
+                              quantity={item?.quantity}
+                              handleDeleteItem={handleDeleteItem}
+                            />
+                          )
+                        })
+                      )}
+                      <div className={styles.total}>
+                        <div>
+                          <p>Total:</p> $<h5>{total}</h5>
+                        </div>
+                      </div>
                     </div>
                   ) : null}
                 </div>
@@ -102,12 +178,22 @@ const BottomNavbar = () => {
                     }}
                     fill="#23A6F0"
                   />{" "}
-                  <p>{wishlist?.length}</p>
+                  <p>{wishList?.length}</p>
                   {showCart ? (
                     <div className={styles.cart}>
-                      {cart.map((item: any, index: number) => {
-                        return <CartItems key={index} />
-                      })}
+                      {wishList?.length <= 0 ? (
+                        <p>No item in your wishlist</p>
+                      ) : (
+                        wishList.map((item: any, index: number) => {
+                          return (
+                            <WishlistItem
+                              handleDeleteList={handleDeleteList}
+                              key={index}
+                              WishlistItem={item?.data}
+                            />
+                          )
+                        })
+                      )}
                     </div>
                   ) : (
                     false

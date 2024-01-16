@@ -1,26 +1,43 @@
 "use client"
 import SecondaryCover from "@/components/cover/secondary-cover"
 import ProductTile from "@/components/product-tile"
-import { useAllProductsQuery } from "@/redux/api/mutationApi"
-import { setAllProduct } from "@/redux/slices/allProductsSlice"
-import { setCart } from "@/redux/slices/cartSlice"
-import { setProduct } from "@/redux/slices/productSlice"
-import { setWishlist } from "@/redux/slices/wishlistSlice"
-import { Button, styled } from "@material-ui/core"
+import { useAllProductsQuery } from "@/vendor/api/mutationApi"
+import { setAllProduct } from "@/vendor/slices/allProductsSlice"
+import { setCart } from "@/vendor/slices/cartSlice"
+import { setProduct } from "@/vendor/slices/productSlice"
+import { setWishlist } from "@/vendor/slices/wishlistSlice"
+import { Button, Snackbar, SnackbarOrigin, styled } from "@material-ui/core"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import styles from "./styles.module.css"
 
+interface State extends SnackbarOrigin {
+  open: boolean
+}
 const FeaturedProducts = () => {
   const [visibleProducts, setVisibleProducts] = useState(10)
   const [cartItems, setCartItems] = useState<{ data: any; quantity: number }[]>(
     []
   )
+  const [state, setState] = useState<State>({
+    open: false,
+    vertical: "top",
+    horizontal: "center",
+  })
   const [wishListItems, setWishListItems] = useState<{ data: any }[]>([])
   const dispatch = useDispatch()
   const router = useRouter()
 
+  const { vertical, horizontal, open } = state
+
+  const handleClick = (newState: SnackbarOrigin) => () => {
+    setState({ ...newState, open: true })
+  }
+
+  const handleClose = () => {
+    setState({ ...state, open: false })
+  }
   const StyledButton = styled(Button)({
     display: "flex",
     padding: "15px 40px",
@@ -68,6 +85,7 @@ const FeaturedProducts = () => {
       data,
       quantity: 1,
     }
+    handleClick({ vertical: "bottom", horizontal: "right" })
 
     setCartItems((prevCartItems) => [...prevCartItems, newItem])
     dispatch(setCart([...cartItems, newItem]))
@@ -129,6 +147,22 @@ const FeaturedProducts = () => {
           </div>
         </div>
       </SecondaryCover>
+      <Snackbar
+        anchorOrigin={{ vertical, horizontal }}
+        open={open}
+        onClose={handleClose}
+        autoHideDuration={6000}
+        message="Addeed to wishlist"
+        key={vertical + horizontal}
+      />
+      <Snackbar
+        anchorOrigin={{ vertical, horizontal }}
+        autoHideDuration={6000}
+        open={open}
+        onClose={handleClose}
+        message="Addeed to cart"
+        key={vertical + horizontal}
+      />
     </div>
   )
 }
