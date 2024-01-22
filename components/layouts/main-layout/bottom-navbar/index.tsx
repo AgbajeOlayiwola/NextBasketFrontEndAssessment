@@ -80,6 +80,7 @@ const BottomNavbar = () => {
         if (item?.quantity <= 0) {
           handleDeleteItem(item.data.id)
         } else if (i === index) {
+          dispatch(setCart(cartItems))
           return { ...item, quantity: item?.quantity - 1 }
         }
         return item
