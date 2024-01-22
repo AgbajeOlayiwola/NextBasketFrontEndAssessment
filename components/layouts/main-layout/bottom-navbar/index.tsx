@@ -77,7 +77,9 @@ const BottomNavbar = () => {
   const handleRemoveQuantity = (index: any) => {
     setCartItems((prevItems: any) => {
       return prevItems.map((item: any, i: any) => {
-        if (i === index) {
+        if (item?.quantity <= 0) {
+          handleDeleteItem(item.data.id)
+        } else if (i === index) {
           return { ...item, quantity: item?.quantity - 1 }
         }
         return item
